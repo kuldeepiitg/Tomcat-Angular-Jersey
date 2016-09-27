@@ -1,0 +1,27 @@
+<Context>
+    <Resource
+            name="jdbc/dbSecurity"
+            auth="Container"
+            type="javax.sql.DataSource"
+            removeAbandoned="true"
+            removeAbandonedTimeout="15"
+            maxActive="5"
+            maxIdle="5"
+            maxWait="7000"
+            username="root"
+            password="root"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost/dbSecurity?autoReconnectForPools=true&amp;characterEncoding=UTF-8"
+            validationQuery="SELECT '1';"
+            testOnBorrow="true"/>
+    <Realm className="org.apache.catalina.realm.JDBCRealm"
+           driverName="com.mysql.jdbc.Driver"
+           connectionName="root"
+           connectionPassword="root"
+           connectionURL="jdbc:mysql://localhost/dbSecurity?autoReconnectForPools=true&amp;characterEncoding=UTF-8"
+           userTable="users"
+           userNameCol="user_name"
+           userCredCol="user_pass"
+           userRoleTable="user_roles"
+           roleNameCol="role_name"/>
+</Context>
